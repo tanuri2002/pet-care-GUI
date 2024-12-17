@@ -1,0 +1,46 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Navigation Bar Styles */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333; /* Background color of the navbar */
+    padding: 10px 20px;
+    color: #fff;
+  }
+  
+  .navbar .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-left: 20px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1em;
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #00bcd4; /* Change link color on hover */
+  }
+  
