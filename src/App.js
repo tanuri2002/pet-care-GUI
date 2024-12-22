@@ -7,22 +7,22 @@ import Contact from './pages/Contact';
 import Profile from './pages/Profile';
 import './index.css'; 
 
-const App=() =>{
+const App = () => {
   return (
-   <BrowserRouter>
+    <BrowserRouter>
       <div>
-        <NavigationBar>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About/>}/>
-            <Route path="/contact" element={<Contact/>}/>
-            <Route path="/profile" element={<Profile/>}/>
-          </Routes>
-        </NavigationBar>
+        <NavigationBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
       </div>
-   </BrowserRouter>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
