@@ -1,16 +1,16 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './navstyles.css';
 
 const NavigationBar = () => {
-    return(
+    return (
         <div className="navbar">
             <div className="logo">PawDiaries</div>
             <ul className="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Pet Profile</a></li>
+                <li><Link to="/home">Home</Link></li>
+                <li><Link to="/about">About Us</Link></li>
+                <li><Link to="/contact">Contact Us</Link></li>
+                <li><Link to="/profile">Pet Profile</Link></li>
             </ul>
         </div>
     );

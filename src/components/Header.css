@@ -1,6 +1,6 @@
 .header {
-    background-image: url('C:\\Users\\User\\Desktop\\GUI Application\\webapp2\\src\\assests\\bg.jpg'); 
-    alt:"pic";
+    background-image: url('C:\Users\User\Desktop\GUI Application\webapp2\src\assests\bg.jpg'); 
+    /* alt:"pic"; */
     background-size: cover;
     background-position: center;
     height: 600px; /* Adjust height as needed */
