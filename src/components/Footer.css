@@ -1,0 +1,30 @@
+.logo-name{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    padding-left: 45%;
+}
+.footer-container{
+    align-items:center;
+    background-color: #FFF8C3;
+    height: 200px;
+}
+.footer-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.apps{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap:20px;
+    padding-left: 45%;
+}
+.appPic{
+    width: 30px;
+    height: 30px;
+    object-fit:contain;
+    border-radius: 50%;
+}
