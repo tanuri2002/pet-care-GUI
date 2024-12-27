@@ -8,11 +8,9 @@ function Home() {
         <div>
             <Header/>
             <br></br>
-            <br></br>
-            <p><font face=" Inspiration"><font size="6"><font color="#ea990f"><center><b><i>Where Every Tail has a Story ...</i></b></center></font></font></font></p>
+            
+            <p><font face=" Inspiration"><font size="6"><font color="#e1b136"><center><b><i>Where Every Tail has a Story ...</i></b></center></font></font></font></p>
             <HomeCards/>
-            <br></br>
-            <br></br>
             <Footer/>
         </div>
     )
