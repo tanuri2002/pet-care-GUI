@@ -7,6 +7,8 @@ import Contact from './pages/Contact';
 import Profile from './pages/Profile';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import Login from './pages/Login';
+import SignUpp from './pages/SignUpp';
 import './index.css'; 
 
 const App = () => {
@@ -20,8 +22,10 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/signin" element={<SignIn/>} />
+          <Route path="/signin" element={<Login/>} />
           <Route path="/signup" element={<SignUp/>} />
+          
+          <Route path="/signupp" element={<SignUpp/>} />
         </Routes>
       </div>
     </BrowserRouter>
