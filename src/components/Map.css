@@ -4,4 +4,10 @@
     overflow: hidden;
     /* max-width: 800px; */
   }
-  
+  .map-container{
+    display: flex;
+    background-color: beige;
+  }
+  .box{
+    margin-top: 100px;
+  }

@@ -43,6 +43,7 @@ body {
 .nav-links {
   list-style: none;
   display: flex;
+  font-size: 18px;
   align-items: center; /* Align links vertically in the middle */
   height: 100%; /* Stretch nav-links to match navbar height */
 }
@@ -61,4 +62,24 @@ body {
 
 .nav-links a:hover {
   color: #000000; /* Change link color on hover */
+}
+.sign-in-btn {
+  margin-left: auto; /* This pushes the Sign In button to the far right */
+  background-color: #f39c12;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 40px;
+}
+
+.sign-in-btn a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  /* padding: 5px; */
+  margin-bottom:15px ;
+  display: block;
+}
+
+.sign-in-btn a:hover {
+  background-color: #e67e22;
 }
