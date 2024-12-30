@@ -1,8 +1,17 @@
+.largeCont{
+    background-color: rgb(237, 225, 187);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 50px; /* Adjust the top padding as needed */
+}
 .home-cards-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns */
     gap: 50px; /* Spacing between cards */
-    padding: 200px;
+    padding: 50px 20px; /* Adjust the padding, top padding reduced */
     background-color: rgb(237, 225, 187);
 }
 

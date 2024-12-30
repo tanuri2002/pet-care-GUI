@@ -1,28 +1,24 @@
-function validation(values){
-    alert("")
-    let error={}
-    const email_pattern= /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    const password_pattern=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/
+function validation(values) {
+    let error = {};
 
-    if(values.email=== ""){
-        error.email="Nmae shoul not be empty"
-    }
-    else if(!email_pattern.test(values.email)){
-        error.email="Email didn't match"
-    }
-    else{
-        error.email=""
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
+
+    // Email Validation
+    if (!values.email) {
+        error.email = "Name should not be empty";
+    } else if (!emailPattern.test(values.email)) {
+        error.email = "Email is not valid";
     }
 
-    if(values.password===""){
-        error.password="Password shouln't be empty"
+    // Password Validation
+    if (!values.password) {
+        error.password = "Password shouldn't be empty";
+    } else if (!passwordPattern.test(values.password)) {
+        error.password = "Password must contain at least 8 characters, including uppercase, lowercase, and a number";
     }
-    else if(!password_pattern.test(values.password)){
-        error.password="Password didn't match"
-    }
-    else{
-        error.password=""
-    }
+
     return error;
 }
+
 export default validation;
