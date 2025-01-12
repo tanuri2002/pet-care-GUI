@@ -1,16 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './HomeCards.css';
 
 function HomeCards() {
+
+    const navigate = useNavigate();
+
     const cards = [
-        { id: 1, title: "Dog Day Care", description: "A fun, safe place for your dog to play and relax while you’re away.", image: "/images/care.avif" },
+        { id: 1, title: "Dog Day Care", description: "A fun, safe place for your dog to play and relax while you’re away.", image: "/images/care.avif" ,path:'/DayCare'},
         { id: 2, title: "Grooming", description: "Professional grooming to keep your pet clean, styled, and happy.", image: "/images/grooming2.avif" },
         { id: 3, title: "Training", description: "Tailored programs to teach obedience, skills, and better behavior.", image: "/images/taining2.jpg" },
         { id: 4, title: "Puppy School", description: "Socialize and train your puppy with fun, structured classes.", image: "/images/school.jpg" },
         { id: 5, title: "Venue Bookings", description: "Reserve our dog-friendly parks and spaces for events or playtime.", image: "/images/venue.jpeg" },
         { id: 6, title: "Breed MeetUp Events", description: "Connect with others at breed-specific meetups full of fun!", image: "/images/meetup.avif" },
     ];
-
+    const handleButtonClick = (path) => {
+        navigate(path); // Navigate to the respective path
+    };
     return (
         <div className='largeCont'>
 
@@ -22,6 +28,7 @@ function HomeCards() {
                         <div className="card-content">
                             <h3 className="card-title">{card.title}</h3>
                             <p className="card-description">{card.description}</p>
+                            <button className="book-now-btn" onClick={() => handleButtonClick(card.path)}>Book Now</button>
                         </div>
                     </div>
                 ))}

@@ -3,17 +3,20 @@ import { Link, useNavigate } from "react-router-dom";
 import Validation from "./SignUpValidation";
 import { useState } from "react";
 import axios from "axios";
+import  './signupp.css';
+import Footer from "../components/Footer";
 
 function SignUpp() {
-    const [values, setValues] = useState({
+    const [values, setValues] = useState({   //useState provides a function to change the values of "values" and also, it initializes the values with empty values here.
         name: '',
         email: '',
         password: ''
     });
 
-    const navigate = useNavigate();
+    const navigate = useNavigate();  //Initializes the navigate function, which is used to programmatically redirect the user to another route
 
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState({});  //errors: Holds error messages for form fields (name, email, password).
+                                               //setErrors: Updates the errors state based on validation results.
 
     const handleInput = (event) => {
         setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }));
@@ -22,26 +25,30 @@ function SignUpp() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const validationErrors = Validation(values);
-        console.log("Validation Errors:", validationErrors); // Debugging step
+        console.log("Validation Errors:", validationErrors); // Check errors
         setErrors(validationErrors);
-        if (!validationErrors.name && !validationErrors.email && !validationErrors.password) {
-            console.log("Sending data to server:", values); // Debugging step
+        if (Object.keys(validationErrors).length === 0) { // No errors
+            console.log("Sending data to server:", values);
             axios.post('http://localhost:8081/signup', values)
                 .then((res) => {
                     console.log('Signup successful:', res);
-                    navigate('/signin'); // Ensure the path here is correct.
+                    navigate('/signin');
                 })
                 .catch((err) => {
                     console.error('Signup error:', err);
                 });
         }
     };
+    
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
+                <div className="divisionSignUp">
+                <div className="signUp-box">
+                
                 <div>
-                    <label htmlFor="name"><strong>Name</strong></label>
+                <label htmlFor="name" className="label"><strong>Name</strong></label>
                     <input
                         type="text"
                         placeholder="Enter Name"
@@ -53,7 +60,7 @@ function SignUpp() {
                 </div>
 
                 <div>
-                    <label htmlFor="email"><strong>Email</strong></label>
+                    <label htmlFor="email" className="label"><strong>Email</strong></label>
                     <input
                         type="email"
                         placeholder="Enter Email"
@@ -79,8 +86,12 @@ function SignUpp() {
                 <button type="submit">Sign Up</button>
                 <p>You're agree to our terms and policies</p>
                 <Link to="/signin">Login</Link>
+                </div>
+                </div>
             </form>
+            
         </div>
+        
     );
 }
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Validation from './LoginValidation';
+import './login.css'
 
 function Login() {
     const [values, setValues] = useState({
@@ -48,8 +49,10 @@ function Login() {
 
     return (
         <div>
-            <div className="bg-white p-3 rounded w-25">
+            
                 <form onSubmit={handleSubmit}>
+                <div className="divisionSignIn">
+                <div className="signIn-box">
                     <div>
                         <label htmlFor="email"><strong>Email</strong></label>
                         <input 
@@ -79,8 +82,10 @@ function Login() {
                     <button type='submit'>Log in</button>
                     <p>You're agreeing to our terms and policies</p>
                     <Link to="/signupp">Create Account</Link>
+                    </div>
+                    </div>
                 </form>
-            </div>
+           
         </div>
     );
 }

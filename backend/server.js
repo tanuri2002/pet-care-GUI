@@ -23,17 +23,25 @@ db.connect((err) => {
   console.log("Connected to MySQL");
 });
 
+// Default route to verify the server is running
+app.get("/", (req, res) => {
+  res.send("Welcome to the Signup API!");
+});
+
 // Signup endpoint
 app.post("/signup", (req, res) => {
-  console.log(req.body);
+  console.log("Received data:", req.body);
+
   const sql = "INSERT INTO login (name, email, password) VALUES (?,?,?)";
   const values = [req.body.name, req.body.email, req.body.password];
 
-  // Pass the 'values' array directly, not wrapped in another array
   db.query(sql, values, (err, data) => {
     if (err) {
-      console.error("Database Error:", err); // Log the error
-      return res.status(500).json({ message: "Database error", error: err }); // Send more details in the response
+      console.error("Database Error:", err);
+      if (err.code === "ER_DUP_ENTRY") {
+        return res.status(400).json({ message: "Email already registered" });
+      }
+      return res.status(500).json({ message: "Database error", error: err });
     }
     return res.status(200).json({ message: "Signup successful", data: data });
   });
@@ -43,3 +51,4 @@ app.post("/signup", (req, res) => {
 app.listen(8081, () => {
   console.log("Server is running on http://localhost:8081");
 });
+
