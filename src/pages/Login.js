@@ -1,93 +1,94 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Validation from './LoginValidation';
-import './login.css'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { FaEyeSlash, FaRegEye } from 'react-icons/fa';
+import './login.css';
 
 function Login() {
-    const [values, setValues] = useState({
-        email: '',
-        password: ''
-    });
-    const [errors, setErrors] = useState({});
-    const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
-    const handleInput = (event) => {
-        setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
-    };
+  const toggle = () => {
+    setOpen(!open);
+  };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const validationErrors = Validation(values);
-        setErrors(validationErrors);
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-        // Proceed only if there are no validation errors
-        if (Object.keys(validationErrors).length === 0) {
-            try {
-                // Replace this with your API endpoint
-                const response = await fetch('http://your-api-endpoint/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(values),
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    // Redirect to the home page if login is successful
-                    navigate('/home');
-                } else {
-                    alert(data.message || 'Invalid login credentials');
-                }
-            } catch (error) {
-                console.error('Error during login:', error);
-                alert('Something went wrong. Please try again.');
-            }
+    // Send the login request to the backend (MongoDB authentication endpoint)
+    axios.post('http://localhost:5000/login', { email, password })
+      .then(result => {
+        console.log(result); // Logs the result of the request
+        if (result.data === "Success") {
+          navigate('/home'); // Redirects to home page on successful login
+        } else {
+          alert('Invalid login credentials'); // Alert if login fails
         }
-    };
+      })
+      .catch(err => {
+        console.error('Error:', err); // Logs any error that occurs
+        alert('Something went wrong. Please try again.');
+      });
+  };
 
-    return (
-        <div>
-            
-                <form onSubmit={handleSubmit}>
-                <div className="divisionSignIn">
-                <div className="signIn-box">
-                    <div>
-                        <label htmlFor="email"><strong>Email</strong></label>
-                        <input 
-                            type="email" 
-                            placeholder="Enter Email" 
-                            name='email'
-                            value={values.email}
-                            onChange={handleInput} 
-                            className="form-control"
-                        />
-                        {errors.email && <span className="text-danger">{errors.email}</span>}
-                    </div>
+  return (
+    <div className="login-container">
+      <div className="login-left">
+        <img
+          className="login-image"
+          src="/images/signin.png"
+          alt="signin pic"
+        />
+      </div>
 
-                    <div>
-                        <label htmlFor="password"><strong>Password</strong></label>
-                        <input 
-                            type="password" 
-                            placeholder="Enter Password" 
-                            name='password'
-                            value={values.password}
-                            onChange={handleInput} 
-                            className="form-control"
-                        />
-                        {errors.password && <span className="text-danger">{errors.password}</span>}
-                    </div>
+      <div className="login-right">
+        <p className="login-header">Sign In</p>
+        <div className="login-form">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="formEmail" className="form-label"><strong>Email address</strong></label>
+              <input
+                type="email"
+                name="email"
+                id="formEmail"
+                className="form-input"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
 
-                    <button type='submit'>Log in</button>
-                    <p>You're agreeing to our terms and policies</p>
-                    <Link to="/signupp">Create Account</Link>
-                    </div>
-                    </div>
-                </form>
-           
+            <div className="form-group relative">
+              <label htmlFor="formPassword" className="form-label"><strong>Password</strong></label>
+              <div className="password-container">
+                <input
+                  type={open ? 'text' : 'password'}
+                  name="password"
+                  id="formPassword"
+                  className="form-input"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <div className="password-toggle" onClick={toggle}>
+                  {open ? <FaRegEye /> : <FaEyeSlash />}
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" className="submit-btn">Sign In</button>
+          </form>
+
+          <div className="signup-link">
+            <p>Don't have an account?</p>
+            <a href="/signupp" className="signup-link-text">Create Account</a>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Login;

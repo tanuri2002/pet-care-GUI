@@ -15,6 +15,7 @@ const NavigationBar = () => {
                 <li><Link to="/home">Home</Link></li>
                 <li><Link to="/about">About Us</Link></li>
                 <li><Link to="/contact">Contact Us</Link></li>
+                <li><Link to="/addapet">Add a Pet</Link></li>
                 <li><Link to="/profile">Pet Profile</Link></li>
                 <li className="sign-in-btn">
                     <Link to="/signin">Sign In</Link>

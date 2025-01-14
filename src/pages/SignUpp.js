@@ -1,98 +1,117 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Validation from "./SignUpValidation";
-import { useState } from "react";
 import axios from "axios";
-import  './signupp.css';
-import Footer from "../components/Footer";
+import { FaEyeSlash, FaRegEye } from "react-icons/fa";
+import Validation from "./SignUpValidation"; // Assuming you have a validation file
+import './signupp.css'; // Assuming you have styles
+import Footer from "../components/Footer"; // Assuming you have a footer component
 
-function SignUpp() {
-    const [values, setValues] = useState({   //useState provides a function to change the values of "values" and also, it initializes the values with empty values here.
-        name: '',
-        email: '',
-        password: ''
-    });
+function SignUp() {
+  const [values, setValues] = useState({
+    name: '',
+    email: '',
+    password: ''
+  });
 
-    const navigate = useNavigate();  //Initializes the navigate function, which is used to programmatically redirect the user to another route
+  const [errors, setErrors] = useState({});
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
-    const [errors, setErrors] = useState({});  //errors: Holds error messages for form fields (name, email, password).
-                                               //setErrors: Updates the errors state based on validation results.
+  const togglePasswordVisibility = () => {
+    setOpen(!open);
+  };
 
-    const handleInput = (event) => {
-        setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }));
-    };
+  const handleInput = (event) => {
+    setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }));
+  };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const validationErrors = Validation(values);
-        console.log("Validation Errors:", validationErrors); // Check errors
-        setErrors(validationErrors);
-        if (Object.keys(validationErrors).length === 0) { // No errors
-            console.log("Sending data to server:", values);
-            axios.post('http://localhost:8081/signup', values)
-                .then((res) => {
-                    console.log('Signup successful:', res);
-                    navigate('/signin');
-                })
-                .catch((err) => {
-                    console.error('Signup error:', err);
-                });
-        }
-    };
-    
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const validationErrors = Validation(values); // Perform validation
+    console.log("Validation Errors:", validationErrors); // Check errors
+    setErrors(validationErrors);
 
-    return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div className="divisionSignUp">
-                <div className="signUp-box">
-                
-                <div>
-                <label htmlFor="name" className="label"><strong>Name</strong></label>
-                    <input
-                        type="text"
-                        placeholder="Enter Name"
-                        name="name"
-                        onChange={handleInput}
-                        className="form-control"
-                    />
-                    {errors.name && <span className="text-danger">{errors.name}</span>}
+    if (Object.keys(validationErrors).length === 0) { // No errors, proceed with registration
+      console.log("Sending data to server:", values);
+      axios.post('http://localhost:5000/register', values) // Updated to your MongoDB backend URL
+        .then((res) => {
+          console.log('Signup successful:', res);
+          navigate('/login'); // Redirect to login page after successful signup
+        })
+        .catch((err) => {
+          console.error('Signup error:', err);
+        });
+    }
+  };
+
+  return (
+    <div className="signup-container">
+      <div className="signup-left">
+        <img
+          className="signup-image"
+          src="/images/signup.png"
+          alt="signup pic"
+        />
+      </div>
+
+      <div className="signup-right">
+        <p className="signup-header">Sign Up</p>
+        <div className="signup-form">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name" className="form-label"><strong>Name</strong></label>
+              <input
+                type="text"
+                name="name"
+                className="form-input"
+                placeholder="Enter your name"
+                onChange={handleInput}
+              />
+              {errors.name && <span className="error-text">{errors.name}</span>}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email" className="form-label"><strong>Email address</strong></label>
+              <input
+                type="email"
+                name="email"
+                className="form-input"
+                placeholder="Enter your email"
+                onChange={handleInput}
+              />
+              {errors.email && <span className="error-text">{errors.email}</span>}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="password" className="form-label"><strong>Password</strong></label>
+              <div className="password-container">
+                <input
+                  type={open ? 'text' : 'password'}
+                  name="password"
+                  className="form-input"
+                  placeholder="Enter your password"
+                  onChange={handleInput}
+                />
+                <div className="password-icon" onClick={togglePasswordVisibility}>
+                  {open ? <FaRegEye /> : <FaEyeSlash />}
                 </div>
+              </div>
+              {errors.password && <span className="error-text">{errors.password}</span>}
+            </div>
 
-                <div>
-                    <label htmlFor="email" className="label"><strong>Email</strong></label>
-                    <input
-                        type="email"
-                        placeholder="Enter Email"
-                        name="email"
-                        onChange={handleInput}
-                        className="form-control"
-                    />
-                    {errors.email && <span className="text-danger">{errors.email}</span>}
-                </div>
+            <button type="submit" className="submit-btn">Create Account</button>
 
-                <div>
-                    <label htmlFor="password"><strong>Password</strong></label>
-                    <input
-                        type="password"
-                        placeholder="Enter Password"
-                        name="password"
-                        onChange={handleInput}
-                        className="form-control"
-                    />
-                    {errors.password && <span className="text-danger">{errors.password}</span>}
-                </div>
-
-                <button type="submit">Sign Up</button>
-                <p>You're agree to our terms and policies</p>
-                <Link to="/signin">Login</Link>
-                </div>
-                </div>
-            </form>
-            
+            <div className="login-link">
+              <span>Already have an account? </span>
+              <Link to="/login" className="login-link-text">Sign In</Link>
+            </div>
+          </form>
         </div>
-        
-    );
+      </div>
+
+      <Footer />
+    </div>
+  );
 }
 
-export default SignUpp;
+export default SignUp;
