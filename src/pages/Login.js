@@ -36,14 +36,6 @@ function Login() {
   return (
     <div className="login-container">
       <div className="login-left">
-        <img
-          className="login-image"
-          src="/images/signin.png"
-          alt="signin pic"
-        />
-      </div>
-
-      <div className="login-right">
         <p className="login-header">Sign In</p>
         <div className="login-form">
           <form onSubmit={handleSubmit}>
@@ -85,7 +77,7 @@ function Login() {
             <p>Don't have an account?</p>
             <a href="/signupp" className="signup-link-text">Create Account</a>
           </div>
-        </div>
+          </div>
       </div>
     </div>
   );

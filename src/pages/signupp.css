@@ -1,5 +1,5 @@
-.divisionSignUp{
-    background-image:url("C:\Users\User\Desktop\GUI Application\webapp2\src\assests\signup.jpeg") ;
+.signup-container{
+    background-image:url("C:\Users\User\Desktop\GUI Application\webapp2\src\assests\login.jpg") ;
     background-size: cover; /* Ensures the image covers the entire container */
     position: center;
     background-position: center; /* Centers the image */
@@ -10,3 +10,70 @@
     min-height: 100vh; /* Ensures the container height fills the viewport */
     width: 100%; /* Full width */
 }
+/* Right section for the form */
+.signup-right {
+    flex: 1; /* Ensures it takes up space proportionally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the content vertically */
+    padding-left: 900px; /* Adds space between the form and the left edge of this container */
+    margin:10px;
+  }
+  .signup-header {
+    font-size: 32px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+    /* Form styles */
+  .signup-form {
+    width: 100%; /* Ensures the form takes up the full width of its container */
+    max-width: 400px; /* Optional: Restrict the form's width */
+  }
+  .form-group {
+    margin-bottom: 20px;
+}
+  
+  .form-label {
+    font-size: 18px;
+    font-weight: 200;
+    color: #333;
+  }
+  
+  .password-container {
+    position: relative; /* Position relative to the container for absolute positioning */
+  }
+  
+  .form-input {
+    width: 100%; /* Full-width input */
+    padding: 10px 40px 10px 10px; /* Add padding to the right for the icon */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+  }
+  
+  .password-icon {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    right: 10px; /* Position 10px from the right edge */
+    transform: translateY(-50%); /* Adjust for perfect centering */
+    cursor: pointer;
+    color: #555; /* Optional: Adjust icon color */
+    font-size: 18px; /* Adjust icon size */
+  }
+  
+  .password-icon:hover {
+    color: #000; /* Optional: Darken the icon color on hover */
+  }
+  
+  .login-link {
+    text-align: center;
+    margin-top: 15px;
+    display:flex;
+    gap: 10px;
+  }
+  .login-link-text {
+    color: #4A90E2;
+    text-decoration: underline;
+    cursor: pointer;
+  }

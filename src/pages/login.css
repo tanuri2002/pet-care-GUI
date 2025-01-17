@@ -1,60 +1,44 @@
-/*.divisionSignIn{
-    background-image:url("C:\Users\User\Desktop\GUI Application\webapp2\src\assests\login.jpg") ;
-    background-size: cover; /* Ensures the image covers the entire container 
-    position: center;
-    background-position: center; /* Centers the image 
-    background-repeat: no-repeat; /* Prevents the image from repeating 
-    display: flex; /* Use flexbox for better layout management 
-    align-items: center; /* Centers content vertically 
-    justify-content: center; /* Centers content horizontally 
-    min-height: 100vh; /* Ensures the container height fills the viewport 
-    width: 100%; /* Full width 
-}*/
 /* Container for the login page */
 .login-container {
-    display: flex;
-    height: 100vh;
-  }
+  display: flex;
+  height: 100vh;
+  background-image: url('C:\\Users\\User\\Desktop\\GUI Application\\webapp2\\src\\assests\\signup.jpeg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
   
-  /* Left section with the image */
-  .login-left {
-    flex: 1;
-  }
+/* Right section for the form */
+.login-left {
+  flex: 1; /* Ensures it takes up space proportionally */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers the content vertically */
+  padding-left: 200px; /* Adds space between the form and the left edge of this container */
+  margin:10px;
+}
+
   
-  .login-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.login-header {
+  font-size: 32px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
   
-  /* Right section for the form */
-  .login-right {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+  /* Form styles */
+.login-form {
+  width: 100%; /* Ensures the form takes up the full width of its container */
+  max-width: 400px; /* Optional: Restrict the form's width */
+}
   
-  .login-header {
-    font-size: 32px;
-    font-weight: 600;
-    color: #dfc73e;
+.form-group {
     margin-bottom: 20px;
-  }
-  
-  .login-form {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
+}
   
   .form-label {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 200;
     color: #333;
   }
   
@@ -81,21 +65,24 @@
   .submit-btn {
     width: 100%;
     padding: 12px;
-    background-color: #4A90E2;
+    background-color: #e1b136;
     color: white;
-    border: none;
-    border-radius: 5px;
+    border-radius: 30px;
+    border-color: #000000;
+    border-width: 2px;
     cursor: pointer;
     margin-top: 10px;
   }
   
   .submit-btn:hover {
-    background-color: #357ABD;
+    background-color: #edd780;
   }
   
   .signup-link {
     text-align: center;
     margin-top: 15px;
+    display:flex;
+    gap: 10px;
   }
   
   .signup-link-text {

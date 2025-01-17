@@ -46,17 +46,10 @@ function SignUp() {
 
   return (
     <div className="signup-container">
-      <div className="signup-left">
-        <img
-          className="signup-image"
-          src="/images/signup.png"
-          alt="signup pic"
-        />
-      </div>
-
       <div className="signup-right">
         <p className="signup-header">Sign Up</p>
         <div className="signup-form">
+
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name" className="form-label"><strong>Name</strong></label>
@@ -92,24 +85,23 @@ function SignUp() {
                   placeholder="Enter your password"
                   onChange={handleInput}
                 />
-                <div className="password-icon" onClick={togglePasswordVisibility}>
-                  {open ? <FaRegEye /> : <FaEyeSlash />}
-                </div>
+              <div className="password-icon" onClick={togglePasswordVisibility}>
+                {open ? <FaRegEye /> : <FaEyeSlash />}
+              </div>
               </div>
               {errors.password && <span className="error-text">{errors.password}</span>}
             </div>
 
+
             <button type="submit" className="submit-btn">Create Account</button>
 
             <div className="login-link">
-              <span>Already have an account? </span>
-              <Link to="/login" className="login-link-text">Sign In</Link>
+              <span><center>Already have an account?</center></span>
+              <Link to="/login" className="login-link-text">Sign in</Link>
             </div>
           </form>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }
