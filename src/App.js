@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import SignUpp from './pages/SignUpp';
+import AddAPet from './pages/AddAPet';
 import './index.css'; 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/addapet" element={<AddAPet/>}/>
           <Route path="/login" element={<Login/>} />
           <Route path="/signupp" element={<SignUpp/>} />
         </Routes>

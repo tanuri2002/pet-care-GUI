@@ -1,0 +1,18 @@
+.main-container{
+    background-color: #FFF8C3;
+    display: flex;
+    padding-left:455px;
+}
+.topic{
+    align-items: center;
+    background-color: #9C945B;
+}
+.registration-box{
+    background-color:#9C945B;
+    display:flex;
+    margin: 50px;
+    padding:50px;
+    width:500px;
+    height:700px;
+    border-radius: 30px;
+}
