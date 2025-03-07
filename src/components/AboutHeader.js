@@ -12,7 +12,7 @@ function AboutHeader(){
             </div>
         </div>
 
-        <p className="topic"><center><b><font size="5"><font face="inter">Our vision and Mission</font></font></b></center></p>
+        <p className="topicc"><center><font size="6"><font face="inter">Our vision and Mission</font></font></center></p>
         <div className="mission-vision">
         <div className="mission">
             <h3><font face="inter"><center>Mission</center></font></h3>

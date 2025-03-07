@@ -13,7 +13,6 @@ body {
 .navbar {
   display: flex;
   justify-content: space-between; /* Space between logo-name and nav-links */
-  /* align-items: center; */
   background-color: #e1b136; /* Background color of the navbar */
   padding: 5px 20px; /* Adjust padding to reduce vertical height */
   color: #fff;
@@ -22,7 +21,7 @@ body {
 
 .logo-name {
   display: flex; /* Align logo and name horizontally */
-  align-items: flex-start; /* Align logo and name to the top of the navbar */
+  align-items:center; /* Align logo and name to the top of the navbar */
   gap: 5px; /* Spacing between logo image and name */
 }
 

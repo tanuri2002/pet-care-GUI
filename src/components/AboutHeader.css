@@ -47,8 +47,8 @@
     overflow: hidden; /* Ensures any overflowing content is hidden */
     border-radius: 20px;
 }
-.topic{
-    background-color: rgb(255, 255, 255);
+.topicc{
+    /* background-color: rgb(255, 255, 255); */
     border-top: 200px;
     padding-top: 50px;
     padding-bottom: 5px;
