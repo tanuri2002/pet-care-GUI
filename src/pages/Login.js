@@ -16,15 +16,14 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Send the login request to the backend (MongoDB authentication endpoint)
+  
     axios.post('http://localhost:5000/login', { email, password })
       .then(result => {
         console.log(result); // Logs the result of the request
-        if (result.data === "Success") {
+        if (result.data.message === 'Success') {
           navigate('/home'); // Redirects to home page on successful login
         } else {
-          alert('Invalid login credentials'); // Alert if login fails
+          alert(result.data.message || 'Invalid login credentials'); // Show specific error message
         }
       })
       .catch(err => {

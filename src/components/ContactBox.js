@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './ContactBox.css';
 
+// ContactBox.js
 function ContactBox() {
     const [formData, setFormData] = useState({
         name: "",
@@ -17,7 +18,7 @@ function ContactBox() {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:3000/submit-form", {
+            const response = await fetch("http://localhost:5000/submit-contact", { // Updated endpoint
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -29,13 +30,17 @@ function ContactBox() {
                 alert("Message sent successfully!");
                 setFormData({ name: "", email: "", message: "" });
             } else {
-                alert("Failed to send message.");
+                const errorData = await response.json();
+                alert(`Failed to send message: ${errorData.message}`);
             }
         } catch (error) {
             console.error("Error submitting form:", error);
             alert("An error occurred. Please try again.");
         }
     };
+
+    // Rest of your component remains the same...
+
 
     return (
         <div className="container-contact">
