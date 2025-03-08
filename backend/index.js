@@ -51,7 +51,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/petapp')
     .then(() => console.log('MongoDB connected'))
     .catch((error) => console.error('MongoDB connection error:', error.message));
 
-// Middleware to authenticate token
+// Middleware to authenticate token (still needed for /register and /login)
 const authenticateToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
@@ -129,7 +129,6 @@ app.post('/login', [
 });
 
 // Pet registration (without authentication)
-// Pet registration (without authentication)
 app.post('/register-pet', upload.single('petPhoto'), [
     body('petName').notEmpty().withMessage('Pet name is required'),
     body('petType').notEmpty().withMessage('Pet type is required'),
@@ -170,10 +169,11 @@ app.post('/register-pet', upload.single('petPhoto'), [
         res.status(500).json({ message: 'Error registering pet', error: error.message });
     }
 });
-// Get all pets (still requires authentication)
-app.get('/pets', authenticateToken, async (req, res) => {
+
+// Get all pets (no authentication, no owner filter)
+app.get('/pets', async (req, res) => {
     try {
-        const pets = await PetModel.find({ owner: req.user.id });
+        const pets = await PetModel.find(); // Fetch all pets
         res.json(pets);
     } catch (err) {
         console.error('Error fetching pets:', err);
@@ -181,18 +181,18 @@ app.get('/pets', authenticateToken, async (req, res) => {
     }
 });
 
-// Update a pet (still requires authentication)
-app.put('/pets/:id', authenticateToken, async (req, res) => {
+// Update a pet (no authentication, no owner filter)
+app.put('/pets/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const { petName, petType, petBreed, petAge, petColor } = req.body;
         const updatedPet = await PetModel.findOneAndUpdate(
-            { _id: id, owner: req.user.id },
-            { petName, petType, petBreed, petAge, petColor },
+            { _id: id },
+            { petName, petType, petBreed, petAge: Number(petAge), petColor },
             { new: true, runValidators: true }
         );
         if (!updatedPet) {
-            return res.status(404).json({ message: 'Pet not found or not authorized' });
+            return res.status(404).json({ message: 'Pet not found' });
         }
         res.json({ message: 'Pet updated successfully', pet: updatedPet });
     } catch (err) {
@@ -201,13 +201,13 @@ app.put('/pets/:id', authenticateToken, async (req, res) => {
     }
 });
 
-// Delete a pet (still requires authentication)
-app.delete('/pets/:id', authenticateToken, async (req, res) => {
+// Delete a pet (no authentication, no owner filter)
+app.delete('/pets/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const deletedPet = await PetModel.findOneAndDelete({ _id: id, owner: req.user.id });
+        const deletedPet = await PetModel.findOneAndDelete({ _id: id });
         if (!deletedPet) {
-            return res.status(404).json({ message: 'Pet not found or not authorized' });
+            return res.status(404).json({ message: 'Pet not found' });
         }
         res.json({ message: 'Pet deleted successfully' });
     } catch (err) {
