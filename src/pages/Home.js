@@ -2,13 +2,13 @@ import React from 'react'
 import Header from '../components/Header'
 import HomeCards from '../components/HomeCards'
 import Footer from '../components/Footer'
+import './Home.css'
 
 function Home() {
     return(
-        <div>
+        <div className="home-page">
             <Header/>
-            <br></br>            
-            <p><font face=" Inspiration"><font size="6"><font color="#e1b136"><center><b><i>Where Every Tail has a Story ...</i></b></center></font></font></font></p>
+            <div className="home-hero">Where Every Tail has a Story ...</div>
             <HomeCards/>
             <Footer/>
         </div>

@@ -15,16 +15,18 @@ const App = () => {
     <BrowserRouter>
       <div>
         <NavigationBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/addapet" element={<AddAPet/>}/>
-          <Route path="/login" element={<Login/>} />
-          <Route path="/signupp" element={<SignUpp/>} />
-        </Routes>
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/addapet" element={<AddAPet/>}/>
+            <Route path="/login" element={<Login/>} />
+            <Route path="/signupp" element={<SignUpp/>} />
+          </Routes>
+        </div>
       </div>
     </BrowserRouter>
   );

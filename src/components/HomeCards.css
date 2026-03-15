@@ -1,3 +1,7 @@
+/* Ensure all HomeCards elements use Brush Script (use the more common system name first) */
+.largeCont, .home-cards-container, .card, .card-content, .card-title, .card-description, .book-now-btn {
+    font-family: "Brush Script", cursive;
+}
 .largeCont{
     background-color: rgb(237, 225, 187);
     display: flex;

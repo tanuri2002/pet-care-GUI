@@ -1,10 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './HomeCards.css';
 
 function HomeCards() {
-
-    const navigate = useNavigate();
 
     const cards = [
         { id: 1, title: "Dog Day Care", description: "A fun, safe place for your dog to play and relax while you’re away.", image: "/images/care.avif" ,path:'/DayCare'},
@@ -14,13 +11,9 @@ function HomeCards() {
         { id: 5, title: "Venue Bookings", description: "Reserve our dog-friendly parks and spaces for events or playtime.", image: "/images/venue.jpeg" },
         { id: 6, title: "Breed MeetUp Events", description: "Connect with others at breed-specific meetups full of fun!", image: "/images/meetup.avif" },
     ];
-    const handleButtonClick = (path) => {
-        navigate(path); // Navigate to the respective path
-    };
     return (
         <div className='largeCont'>
-
-            <p style={{ fontFamily: "Brush Script, cursive", fontSize:"25px"}}><center>Our Services ...</center></p>
+            <p style={{ fontSize:"25px"}}><center>Our Services ...</center></p>
             <div className="home-cards-container">
                 {cards.map((card) => (
                     <div key={card.id} className="card">
@@ -28,7 +21,6 @@ function HomeCards() {
                         <div className="card-content">
                             <h3 className="card-title">{card.title}</h3>
                             <p className="card-description">{card.description}</p>
-                            <button className="book-now-btn" onClick={() => handleButtonClick(card.path)}>Book Now</button>
                         </div>
                     </div>
                 ))}

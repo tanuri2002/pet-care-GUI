@@ -45,7 +45,7 @@ function ContactBox() {
     return (
         <div className="container-contact">
             <div className="detail-box">
-                <p style={{ fontSize: "20px", fontFamily: "Brush Script, cursive" }}>Get In Touch</p>
+                <p style={{ fontSize: "20px", fontFamily: "Brush Script, cursive", marginTop: '20px' }}>Get In Touch</p>
                 <br />
                 <p style={{ fontFamily: "Brush Script, cursive" }}>
                     Get in touch with PawDiaries through any of our channels. We’re excited to hear from you!

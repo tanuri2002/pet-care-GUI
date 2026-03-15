@@ -19,33 +19,46 @@
 }
 .mission-vision{
     display: flex;
-    background-color: rgb(255, 255, 255);
-    gap:150px;
+    gap: 40px;
+    /* decorative font for mission/vision container */
+    font-family: "Brush Script", cursive;
+    justify-content: center; /* center the two boxes horizontally */
+    align-items: flex-start;
+    max-width: 1200px; /* contain their combined width */
+    margin: 0 auto; /* center container in page */
+    padding: 20px;
+    box-sizing: border-box;
 }
-.mission-vision .mission{
-    height:200px;
-    width: 300px;
-    margin-top: 100px;
-    margin-left: 400px;
-    margin-bottom: 100px;
-    background-image:url("C:\Users\User\Desktop\GUI Application\webapp2\public\images\vbimg.jpg");
-    background-size: cover; /* Ensures the image covers the entire container */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    overflow: hidden; /* Ensures any overflowing content is hidden */
-    border-radius: 20px;
-}
+
+.mission-vision .mission,
 .mission-vision .vision{
-    height:200px;
-    width: 300px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    background-image:url("C:\Users\User\Desktop\GUI Application\webapp2\public\images\vbimg.jpg");
-    background-size: cover; /* Ensures the image covers the entire container */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    overflow: hidden; /* Ensures any overflowing content is hidden */
+    height: 200px;
+    width: 48%;
+    max-width: 500px;
+    /* ensure the content inside uses the decorative font */
+    font-family: inherit;
+    color: #333;
+    margin: 60px 0; /* vertical spacing only */
+    background-image: url("C:\Users\User\Desktop\GUI Application\webapp2\public\images\vbimg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
     border-radius: 20px;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 900px) {
+    .mission-vision{
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+    }
+    .mission-vision .mission,
+    .mission-vision .vision{
+        width: 90%;
+        margin: 20px auto;
+    }
 }
 .topicc{
     /* background-color: rgb(255, 255, 255); */

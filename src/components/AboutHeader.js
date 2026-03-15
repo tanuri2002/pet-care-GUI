@@ -5,6 +5,7 @@ function AboutHeader(){
     return(
         <div>
         <div className="aboutHeader-container">
+            {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <img src={process.env.PUBLIC_URL + "/images/Animal-care-removebg-preview.png"}></img>
             <div className="para">
             <p><b><font color="Black"><font face="inter"><font size="20">Welcome to <font color="#e1b136">PawDiaries</font></font></font></font></b></p>
@@ -12,7 +13,7 @@ function AboutHeader(){
             </div>
         </div>
 
-        <p className="topicc"><center><font size="6"><font face="inter">Our vision and Mission</font></font></center></p>
+        <p className="topicc"><center><font size="6"><font face="Brush Script, cursive">Our vision and Mission</font></font></center></p>
         <div className="mission-vision">
         <div className="mission">
             <h3><font face="inter"><center>Mission</center></font></h3>

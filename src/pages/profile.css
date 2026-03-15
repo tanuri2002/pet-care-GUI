@@ -43,7 +43,7 @@
   }
   
   .profile-details {
-    font-family: Arial, sans-serif;
+    font-family: inherit;
     font-size: 16px;
     color: #444;
   }
