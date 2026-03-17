@@ -21,6 +21,12 @@ function Login() {
       .then(result => {
         console.log(result); // Logs the result of the request
         if (result.data.message === 'Success') {
+          // Store token for authenticated requests
+          if (result.data.token) {
+            localStorage.setItem('token', result.data.token);
+              // notify other components in same tab
+              window.dispatchEvent(new Event('authChanged'));
+          }
           navigate('/home'); // Redirects to home page on successful login
         } else {
           alert(result.data.message || 'Invalid login credentials'); // Show specific error message

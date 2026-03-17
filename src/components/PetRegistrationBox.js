@@ -42,8 +42,10 @@ function PetRegistrationBox() {
         }
 
         try {
+            const token = localStorage.getItem('token');
             const response = await fetch("http://localhost:5000/register-pet", {
                 method: "POST",
+                headers: token ? { 'Authorization': `Bearer ${token}` } : {},
                 body: formDataToSend,
             });
 

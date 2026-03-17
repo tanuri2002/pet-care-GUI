@@ -7,6 +7,7 @@ const petSchema = new mongoose.Schema({
   petAge: { type: Number, required: true, min: 0 }, // Changed to Number with min validation
   petColor: { type: String, required: true },
   petPhoto: { type: String }, // Optional photo path or URL
+  owner: { type: mongoose.Schema.Types.ObjectId, ref: 'register', required: true },
   createdAt: { type: Date, default: Date.now }, // Tracks when the pet was registered
 });
 

@@ -129,7 +129,8 @@ app.post('/login', [
 });
 
 // Pet registration (without authentication)
-app.post('/register-pet', upload.single('petPhoto'), [
+// Require authentication for pet operations so we can associate pets with owners
+app.post('/register-pet', authenticateToken, upload.single('petPhoto'), [
     body('petName').notEmpty().withMessage('Pet name is required'),
     body('petType').notEmpty().withMessage('Pet type is required'),
     body('petBreed').notEmpty().withMessage('Pet breed is required'),
@@ -160,7 +161,13 @@ app.post('/register-pet', upload.single('petPhoto'), [
             petAge: Number(petAge),
             petColor,
             petPhoto,
+            owner: req.user && req.user.id ? req.user.id : null,
         };
+
+        // Ensure owner is present
+        if (!petData.owner) {
+            return res.status(401).json({ message: 'Authentication required to register a pet' });
+        }
 
         const newPet = await PetModel.create(petData);
         res.status(201).json({ message: 'Pet registered successfully', pet: newPet });
@@ -171,9 +178,12 @@ app.post('/register-pet', upload.single('petPhoto'), [
 });
 
 // Get all pets (no authentication, no owner filter)
-app.get('/pets', async (req, res) => {
+// Return pets for the authenticated user only
+app.get('/pets', authenticateToken, async (req, res) => {
     try {
-        const pets = await PetModel.find(); // Fetch all pets
+        const ownerId = req.user && req.user.id;
+        if (!ownerId) return res.status(401).json({ message: 'Authentication required' });
+        const pets = await PetModel.find({ owner: ownerId });
         res.json(pets);
     } catch (err) {
         console.error('Error fetching pets:', err);
@@ -182,12 +192,13 @@ app.get('/pets', async (req, res) => {
 });
 
 // Update a pet (no authentication, no owner filter)
-app.put('/pets/:id', async (req, res) => {
+app.put('/pets/:id', authenticateToken, async (req, res) => {
     try {
         const { id } = req.params;
         const { petName, petType, petBreed, petAge, petColor } = req.body;
+        // Only allow the owner to update
         const updatedPet = await PetModel.findOneAndUpdate(
-            { _id: id },
+            { _id: id, owner: req.user.id },
             { petName, petType, petBreed, petAge: Number(petAge), petColor },
             { new: true, runValidators: true }
         );
@@ -202,10 +213,11 @@ app.put('/pets/:id', async (req, res) => {
 });
 
 // Delete a pet (no authentication, no owner filter)
-app.delete('/pets/:id', async (req, res) => {
+app.delete('/pets/:id', authenticateToken, async (req, res) => {
     try {
         const { id } = req.params;
-        const deletedPet = await PetModel.findOneAndDelete({ _id: id });
+        // Only allow owner to delete
+        const deletedPet = await PetModel.findOneAndDelete({ _id: id, owner: req.user.id });
         if (!deletedPet) {
             return res.status(404).json({ message: 'Pet not found' });
         }
