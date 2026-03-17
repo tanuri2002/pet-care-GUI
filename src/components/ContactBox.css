@@ -1,5 +1,5 @@
 .container-contact{
-    background-color: bisque;
+    background-color: rgb(237, 225, 187);
     display: flex;
     /* increase top margin so fixed navbar doesn't overlap the box */
     margin: 90px 50px 50px 50px;

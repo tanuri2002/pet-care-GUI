@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: flex-start;
     padding: 20px;
-    background-color: antiquewhite;
+    background-color: rgb(237, 225, 187);
     overflow-y: auto;
   }
   
@@ -32,7 +32,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: antiquewhite; /* Bright yellow for contrast */
+    background-color: rgb(237, 225, 187); /* Bright yellow for contrast */
     min-height: 80vh; /* Match the form container height */
   }
   

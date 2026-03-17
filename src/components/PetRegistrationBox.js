@@ -130,7 +130,7 @@ function PetRegistrationBox() {
                         )}
                         <br />
                         <button type="submit" className="submit-button" disabled={isLoading}>
-                            {isLoading ? "Submitting..." : "Submit"}
+                            {isLoading ? "Submitting..." : "Add Pet"}
                         </button>
                     </form>
                 </div>

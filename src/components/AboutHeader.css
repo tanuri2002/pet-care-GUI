@@ -1,5 +1,5 @@
 .aboutHeader-container{
-    background-color: antiquewhite;
+    background-color: rgb(237, 225, 187);
     height:500px;
     display: flex;
 }
@@ -67,7 +67,7 @@
     padding-bottom: 5px;
 }
 .testimonials{
-    background-color: #FFF8C3;
+    background-color: rgb(237, 225, 187);
     width:full;
     height: 500px;
     padding-top: 10px;
