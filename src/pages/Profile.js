@@ -75,8 +75,8 @@ function Profile() {
     const startEditing = (pet) => {
         setEditingPetId(pet._id);
         setEditFormData({
-            petName: pet.petName,
             petType: pet.petType,
+            petName: pet.petName,
             petBreed: pet.petBreed,
             petAge: pet.petAge,
             petColor: pet.petColor
@@ -107,16 +107,16 @@ function Profile() {
                             <div className="profile-edit-form">
                                 <input
                                     type="text"
-                                    name="petName"
-                                    value={editFormData.petName}
-                                    onChange={handleEditChange}
-                                />
-                                <input
-                                    type="text"
                                     name="petType"
                                     value={editFormData.petType}
                                     onChange={handleEditChange}
                                 />
+                                <input
+                                    type="text"
+                                    name="petName"
+                                    value={editFormData.petName}
+                                    onChange={handleEditChange}
+                                />                
                                 <input
                                     type="text"
                                     name="petBreed"
@@ -152,8 +152,8 @@ function Profile() {
                             </div>
                         ) : (
                             <div className="profile-details">
-                                <p><strong>Name:</strong> {pet.petName}</p>
                                 <p><strong>Type:</strong> {pet.petType}</p>
+                                <p><strong>Name:</strong> {pet.petName}</p>
                                 <p><strong>Breed:</strong> {pet.petBreed}</p>
                                 <p><strong>Age:</strong> {pet.petAge}</p>
                                 <p><strong>Colour:</strong> {pet.petColor}</p>

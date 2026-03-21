@@ -9,7 +9,8 @@ function AboutHeader(){
             <img src={process.env.PUBLIC_URL + "/images/Animal-care-removebg-preview.png"}></img>
             <div className="para">
             <p><b><font color="Black"><font face="inter"><font size="20">Welcome to <font color="#e1b136">PawDiaries</font></font></font></font></b></p>
-            <p className="sentence"><font size="5"><font face="Georgia">From heartwarming cuddles to playful adventures, we make every moment magical for your dog.</font></font></p>
+            <p className="sentence"><font size="3"><font face="Georgia">At PawDiaries, we turn everyday moments into joyful adventures for your pets! 
+                From playful day care and stylish grooming to expert training and fun puppy programs, we create a space where every dog can learn, play, and thrive. With exciting meet-ups and pet-friendly venues, PawDiaries is where happy tails never stop wagging!</font></font></p>
             </div>
         </div>
 

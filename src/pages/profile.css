@@ -1,8 +1,12 @@
+.profile-page-background {
+  background-color: rgb(237, 225, 187);
+}
+
 .profile-container {
     max-width: 1000px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: rgb(237, 225, 187);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
@@ -28,24 +32,34 @@
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-direction: row; /* left/right layout */
   }
-  
-  .profile-image {
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .profile-image img {
-    max-width: 200px;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-  }
-  
+
+  /* Ensure details appear on left, photo on right */
   .profile-details {
+    order: 1;
+    flex: 1 1 60%;
     font-family: inherit;
     font-size: 16px;
     color: #444;
+  }
+
+  .profile-image {
+    order: 2;
+    flex: 0 0 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
   }
   
   .profile-details p {
@@ -78,12 +92,27 @@
     background-color: #efcc94;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     .profile-card {
-      flex: 1 1 calc(50% - 20px); /* 2 cards per row on smaller screens */
+      flex: 1 1 calc(50% - 20px); /* 2 cards per row on medium screens */
     }
   }
-  
+
+  @media (max-width: 768px) {
+    .profile-card {
+      flex-direction: column; /* stack on smaller screens */
+      align-items: stretch;
+    }
+    .profile-image {
+      order: 1;
+      flex: 0 0 auto;
+      margin-bottom: 12px;
+    }
+    .profile-details {
+      order: 2;
+    }
+  }
+
   @media (max-width: 480px) {
     .profile-card {
       flex: 1 1 100%; /* 1 card per row on very small screens */
