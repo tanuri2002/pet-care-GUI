@@ -28,6 +28,14 @@ jobs:
       - name: Install dependencies
         run: npm ci --prefer-offline --no-audit --no-fund
 
+      - name: Debug: verify installed packages
+        run: |
+          echo "Node and npm versions:"; node -v; npm -v
+          echo "Top-level node_modules listing:"; ls -la node_modules | head -n 40 || true
+          echo "node_modules size:"; du -sh node_modules || true
+          echo "Check package resolution results (missing => printed):"
+          node -e "try{console.log('react-refresh:', require.resolve('@pmmmwh/react-refresh-webpack-plugin/client/ReactRefreshEntry.js'))}catch(e){console.error('MISSING ReactRefreshEntry')}; try{console.log('source-map-loader:', require.resolve('source-map-loader/dist/cjs.js'))}catch(e){console.error('MISSING source-map-loader')}; try{console.log('webpack-dev-server:', require.resolve('webpack-dev-server'))}catch(e){console.error('MISSING webpack-dev-server')}; try{console.log('webpack hot dev-server:', require.resolve('webpack/hot/dev-server.js'))}catch(e){console.error('MISSING webpack hot dev-server')}; try{console.log('html-webpack-plugin loader:', require.resolve('html-webpack-plugin/lib/loader.js'))}catch(e){console.error('MISSING html-webpack-plugin loader')}
+
       - name: Build
         run: npm run build
 
