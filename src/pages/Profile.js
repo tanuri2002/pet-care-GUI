@@ -96,7 +96,7 @@ function Profile() {
                             {pet.petPhoto ? (
                                 <img
                                     src={`http://localhost:5000${pet.petPhoto}`}
-                                    alt={`${pet.petName}'s Photo`}
+                                    alt={pet.petName}
                                 />
                             ) : (
                                 <p>No photo available</p>

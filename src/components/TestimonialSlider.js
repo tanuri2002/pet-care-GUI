@@ -4,63 +4,63 @@ import './Testimonials.css';
 
 function TestimonialSlider(){
     return(
-        <div class="container">
-            <div class="slider-wrapper">
-                <div class="card-list">
-                    <div class="card-item">
-                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="user image" class="user-image"></img>
-                        <h2 class="user-name">James Wilson</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-button">Message</button>
+        <div className="container">
+            <div className="slider-wrapper">
+                <div className="card-list">
+                    <div className="card-item">
+                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="James Wilson" className="user-image" />
+                        <h2 className="user-name">James Wilson</h2>
+                        <p className="user-profession">Software Developer</p>
+                        <button className="message-button">Message</button>
                     </div>
 
-                    <div class="card-item">
-                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="user image" class="user-image"></img>
-                        <h2 class="user-name">Sarah John</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-button">Message</button>
+                    <div className="card-item">
+                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="Sarah John" className="user-image" />
+                        <h2 className="user-name">Sarah John</h2>
+                        <p className="user-profession">Software Developer</p>
+                        <button className="message-button">Message</button>
                     </div>
 
-                    <div class="card-item">
-                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="user image" class="user-image"></img>
-                        <h2 class="user-name">Daniel Johnson</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-button">Message</button>
+                    <div className="card-item">
+                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="Daniel Johnson" className="user-image" />
+                        <h2 className="user-name">Daniel Johnson</h2>
+                        <p className="user-profession">Software Developer</p>
+                        <button className="message-button">Message</button>
                     </div>
 
-                    <div class="card-item">
-                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="user image" class="user-image"></img>
-                        <h2 class="user-name">Laura Thompson</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-button">Message</button>
+                    <div className="card-item">
+                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="Laura Thompson" className="user-image" />
+                        <h2 className="user-name">Laura Thompson</h2>
+                        <p className="user-profession">Software Developer</p>
+                        <button className="message-button">Message</button>
                     </div>
 
-                    <div class="card-item">
-                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="user image" class="user-image"></img>
-                        <h2 class="user-name">James Wilson</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-button">Message</button>
+                    <div className="card-item">
+                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="James Wilson" className="user-image" />
+                        <h2 className="user-name">James Wilson</h2>
+                        <p className="user-profession">Software Developer</p>
+                        <button className="message-button">Message</button>
                     </div>
 
-                    <div class="card-item">
-                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="user image" class="user-image"></img>
-                        <h2 class="user-name">James Wilson</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-button">Message</button>
+                    <div className="card-item">
+                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="James Wilson" className="user-image" />
+                        <h2 className="user-name">James Wilson</h2>
+                        <p className="user-profession">Software Developer</p>
+                        <button className="message-button">Message</button>
                     </div>
 
-                    <div class="card-item">
-                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="user image" class="user-image"></img>
-                        <h2 class="user-name">James Wilson</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-button">Message</button>
+                    <div className="card-item">
+                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="James Wilson" className="user-image" />
+                        <h2 className="user-name">James Wilson</h2>
+                        <p className="user-profession">Software Developer</p>
+                        <button className="message-button">Message</button>
                     </div>
 
-                    <div class="card-item">
-                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="user image" class="user-image"></img>
-                        <h2 class="user-name">James Wilson</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-button">Message</button>
+                    <div className="card-item">
+                        <img src={process.env.PUBLIC_URL + "/images/p14.jpg"} alt="James Wilson" className="user-image" />
+                        <h2 className="user-name">James Wilson</h2>
+                        <p className="user-profession">Software Developer</p>
+                        <button className="message-button">Message</button>
                     </div>
                 </div>
             </div>
