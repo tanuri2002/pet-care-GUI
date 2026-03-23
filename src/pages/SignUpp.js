@@ -4,7 +4,6 @@ import axios from "axios";
 import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 import Validation from "./SignUpValidation"; // Assuming you have a validation file
 import './signupp.css'; // Assuming you have styles
-import Footer from "../components/Footer"; // Assuming you have a footer component
 
 function SignUp() {
   const [values, setValues] = useState({
