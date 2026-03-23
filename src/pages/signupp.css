@@ -1,5 +1,5 @@
 .signup-container{
-    background-image:url("C:\Users\User\Desktop\GUI Application\webapp2\src\assests\login.jpg") ;
+    background-image:url('../assests/login.jpg') ;
     background-size: cover; /* Ensures the image covers the entire container */
     position: center;
     background-position: center; /* Centers the image */
