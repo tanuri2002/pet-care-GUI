@@ -2,7 +2,7 @@
 .login-container {
   display: flex;
   height: 100vh;
-  background-image: url('C:\\Users\\User\\Desktop\\GUI Application\\webapp2\\src\\assests\\signup.jpeg');
+  background-image: url('../assests/signup.jpeg');
   background-size: cover;
   background-position: center;
   color: white;
