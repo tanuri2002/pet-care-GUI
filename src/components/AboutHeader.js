@@ -2,6 +2,14 @@ import React from "react";
 import './AboutHeader.css';
 
 function AboutHeader(){
+    const bgUrl = process.env.PUBLIC_URL + '/images/vbimg.jpg';
+    const boxStyle = {
+        backgroundImage: `url(${bgUrl})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+    };
+
     return(
         <div>
         <div className="aboutHeader-container">
@@ -16,13 +24,13 @@ function AboutHeader(){
 
         <p className="topicc"><center><font size="6"><font face="Brush Script, cursive">- Our vision and Mission -</font></font></center></p>
         <div className="mission-vision">
-        <div className="mission">
+        <div className="mission" style={boxStyle}>
             <h3><font face="inter"><center>Mission</center></font></h3>
             <br></br>
             <p><center>To provide exceptional care, companionship, and enriching experiences for pets, ensuring their happiness and well-being through professional services and a loving environment.</center></p>
         </div>
 
-        <div className="vision">
+        <div className="vision" style={boxStyle}>
             <h3><font face="inter"><center>Vision</center></font></h3>
             <br></br>
             <p><center>To create a world where every pet feels loved, cared for, and truly at home, no matter where they are.</center></p>
